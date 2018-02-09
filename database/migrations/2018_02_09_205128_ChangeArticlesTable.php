@@ -18,8 +18,7 @@ class ChangeArticlesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             // linking articles and categories tables.
             $table->integer('category_id')->unsigned()->default(1);
-            $table->foreign('user_id')->references('id')->on('users');
-
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
