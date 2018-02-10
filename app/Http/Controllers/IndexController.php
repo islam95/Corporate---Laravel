@@ -21,7 +21,8 @@ class IndexController extends SiteController
      */
     public function index()
     {
-        //
+
+        return $this->renderOutput();
     }
 
     /**

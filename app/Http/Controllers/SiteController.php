@@ -14,7 +14,7 @@ class SiteController extends Controller
     protected $menus;
 
     protected $template;
-    protected $vars;
+    protected $vars = array();
 
     protected $sidebar_right = false;
     protected $sidebar_left = false;
@@ -22,6 +22,12 @@ class SiteController extends Controller
 
     public function __construct(){
 
+    }
+
+    protected function renderOutput(){
+
+
+        return view($this->template)->with($this->vars);
     }
 
 }
