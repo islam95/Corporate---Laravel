@@ -2,6 +2,8 @@
 
 namespace Corp\Http\Controllers;
 
+use Corp\Models\Menu;
+use Corp\Repositories\MenuRepository;
 use Illuminate\Http\Request;
 
 use Corp\Http\Requests;
@@ -9,7 +11,7 @@ use Corp\Http\Requests;
 class IndexController extends SiteController
 {
     public function __construct(){
-        parent::__construct(); // calling the parent constructor of SiteController.
+        parent::__construct(new MenuRepository(new Menu())); // calling the parent constructor of SiteController.
         $this->sidebar = 'right'; // used for right sidebar of the page as class name "sidebar-right".
         $this->template = env('THEME') . '.index'; // template of this controller is pink/index.blade.php
     }
