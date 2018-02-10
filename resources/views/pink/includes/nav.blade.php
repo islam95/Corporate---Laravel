@@ -58,27 +58,5 @@
             </ul>
         </li>
 
-        <li>
-            <a href="#">FEATURES</a>
-            <ul class="sub-menu">
-                <li><a href="features-right-sidebar.html">Right sidebar</a></li>
-                <li><a href="features-left-sidebar.html">Left sidebar</a></li>
-                <li><a href="features-full-width.html">Full width</a></li>
-                <li><a href="error-404.html">404 error</a></li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="#">SHORTCODES</a>
-            <ul class="sub-menu">
-                <li><a href="shortcodes-typography.html">Typography</a></li>
-                <li><a href="shortcodes-icon-section.html">Icon section</a></li>
-                <li><a href="shortcodes-alert-box-buttons.html">Alert box &#038; Buttons</a></li>
-                <li><a href="shortcodes-tables-box-prices.html">Tables &#038; Box prices</a></li>
-                <li><a href="shortcodes-media-widgets.html">Media &#038; Widgets</a></li>
-                <li><a href="shortcodes-mix-various.html">Mix &#038; Various</a></li>
-            </ul>
-        </li>
-
     </ul>
 </div>

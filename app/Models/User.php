@@ -1,6 +1,6 @@
 <?php
 
-namespace Corp;
+namespace Corp\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
