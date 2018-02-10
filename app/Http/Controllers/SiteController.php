@@ -26,6 +26,8 @@ class SiteController extends Controller
 
     protected function renderOutput(){
 
+        $nav = view(env('THEME') .'.includes.nav')->render();
+        $this->vars = array_add($this->vars, 'nav', $nav);
 
         return view($this->template)->with($this->vars);
     }
