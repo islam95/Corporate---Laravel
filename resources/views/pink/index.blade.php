@@ -4,3 +4,6 @@
     {!! $nav !!}
 @endsection
 
+@section('slider')
+    {!! $slides !!}
+@endsection

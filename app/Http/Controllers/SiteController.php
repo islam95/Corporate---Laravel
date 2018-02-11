@@ -11,7 +11,7 @@ use Menu;
 class SiteController extends Controller
 {
     protected $portfolios;
-    protected $sliders;
+    protected $slides;
     protected $articles;
     protected $menus;
 
@@ -22,17 +22,19 @@ class SiteController extends Controller
     protected $sidebar_left = false;
     protected $sidebar = false;
 
+
     public function __construct(MenuRepository $menus){
         $this->menus = $menus;
     }
 
+    /**
+     * @return $this
+     * @throws \Throwable
+     */
     protected function renderOutput(){
-
         $menu = $this->getMenu();
-
         $nav = view(env('THEME') .'.includes.nav')->with('menu', $menu)->render();
         $this->vars = array_add($this->vars, 'nav', $nav);
-
         return view($this->template)->with($this->vars);
     }
 
@@ -53,7 +55,6 @@ class SiteController extends Controller
                 }
             }
         });
-
         return $myNav;
     }
 

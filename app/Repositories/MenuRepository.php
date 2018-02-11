@@ -9,6 +9,5 @@ class MenuRepository extends Repository {
     public function __construct(Menu $menu) {
         $this->model = $menu; // Model is Menu
     }
-
 }
 

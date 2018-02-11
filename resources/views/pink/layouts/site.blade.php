@@ -115,121 +115,7 @@
         <!-- END HEADER -->
 
         <!-- START SLIDER -->
-        <div id="slider-cycle" class="slider cycle no-responsive slider_cycle group" style="height:485px;">
-            <ul class="slider">
-                <li>
-                    <div class="slide-holder" style="background:  url('images/slider-cycle/xx.jpg') no-repeat center center" style="height:483px;">
-                        <div class="slide-content-holder inner" style="height:483px;">
-                            <div class="slide-content-holder-content" style="position: absolute; top:30px;right:650px;">
-                                <div class="slide-title">
-                                    <h2 style="color:#fff">CORPORATE, MULTIPURPOSE.. <br /><span>PINK RIO</span></h2>
-                                </div>
-                                <div class="slide-content" style="color:#fff">
-                                    <p>Nam id quam a odio euismod pellentesque. Etiam congue rutrum risus non vestibulum. Quisque a diam at ligula blandit consequat. Mauris ac mi velit, a tempor neque</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slide-holder" style="background:  url('images/slider-cycle/00314.jpg') no-repeat center center" style="height:483px;">
-                        <div class="slide-content-holder inner" style="height:483px;">
-                            <div class="slide-content-holder-content" style="position: absolute; top:80px;left:500px;">
-                                <div class="slide-title">
-                                    <h2 style="color:#fff">PINKRIO. <span>STRONG AND POWERFUL.</span></h2>
-                                </div>
-                                <div class="slide-content" style="color:#fff">
-                                    <p>Nam id quam a odio euismod pellentesque. Etiam congue rutrum risus non vestibulum. Quisque a diam at ligula blandit consequat. Mauris ac mi velit, a tempor neque</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slide-holder" style="background:  url('images/slider-cycle/dd.jpg') no-repeat center center" style="height:483px;">
-                        <div class="slide-content-holder inner" style="height:483px;">
-                        </div>
-                    </div>
-                </li>
-            </ul>
-
-            <div id="yit-widget-area" class="group">
-                <div class="yit-widget-content inner group">
-                    <div class="widget-first yit-widget widget col1_4 one-fourth col widget-icon-text group">
-                        <img class="icon-img" src="images/icons/cloud.jpg" alt="" />
-                        <h3>Great Design</h3>
-                        <p>A widgetized area: add shorcodes, text, icons and more.</p>
-                    </div>
-                    <div class="yit-widget widget col1_4 one-fourth col widget-last-post group">
-                        <img class="icon-img" src="images/icons/blog1.png" alt="" />
-                        <div>
-                            <h3><a class="text-color" href="#" title="">Blog news</a></h3>
-                            <p>Section shortcodes &amp; sticky posts! <a href="article.html"> | more ></a></p>
-                        </div>
-                    </div>
-                    <div class="widget-last yit-widget widget col1_4 one-fourth col yit_text_quote">
-                        <blockquote class="text-quote-quote">“The caterpillar does all the work but the butterfly gets all the publicity.”</blockquote>
-                        <cite class="text-quote-author">George Carlin</cite>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            jQuery(document).ready(function($){
-
-                var     yit_slider_cycle_fx = 'easing',
-                    yit_slider_cycle_speed = 800,
-                    yit_slider_cycle_timeout = 3000,
-                    yit_slider_cycle_directionNav = true,
-                    yit_slider_cycle_directionNavHide = true,
-                    yit_slider_cycle_autoplay = true;
-
-                var yit_widget_area_position = function(){
-                    $('#yit-widget-area').css({ top: 33 - $('#yit-widget-area').height() });
-                };
-                $(window).resize(yit_widget_area_position);
-                yit_widget_area_position();
-
-                if( $.browser.msie && parseInt($.browser.version.substr(0,1),10) <= '8' ) {
-                    $('#slider-cycle ul.slider').anythingSlider({
-                        expand              : true,
-                        startStopped        : false,
-                        buildArrows         : yit_slider_cycle_directionNav,
-                        buildNavigation     : false,
-                        buildStartStop      : false,
-                        delay               : yit_slider_cycle_timeout,
-                        animationTime       : yit_slider_cycle_speed,
-                        easing              : yit_slider_cycle_fx,
-                        autoPlay            : yit_slider_cycle_autoplay ? true : false,
-                        pauseOnHover        : true,
-                        toggleArrows        : false,
-                        resizeContents      : true
-                    });
-                } else {
-                    $('#slider-cycle ul.slider').anythingSlider({
-                        expand              : true,
-                        startStopped        : false,
-                        buildArrows         : yit_slider_cycle_directionNav,
-                        buildNavigation     : false,
-                        buildStartStop      : false,
-                        delay               : yit_slider_cycle_timeout,
-                        animationTime       : yit_slider_cycle_speed,
-                        easing              : yit_slider_cycle_fx,
-                        autoPlay            : yit_slider_cycle_autoplay ? true : false,
-                        pauseOnHover        : true,
-                        toggleArrows        : yit_slider_cycle_directionNavHide ? true : false,
-                        onSlideComplete     : function(slider){},
-                        resizeContents      : true,
-                        onSlideBegin        : function(slider) {},
-                        onSlideComplete     : function(slider) {}
-                    });
-
-                }
-            });
-        </script>
-        <div class="mobile-slider">
-            <div class="slider fixed-image inner"><img src="images/slider-cycle/cycle-fixed.jpg" alt="" /></div>
-        </div>
+        @yield('slider')
 
         <!-- START PRIMARY -->
         <div id="primary" class="sidebar-right">
@@ -380,7 +266,7 @@
         <div id="copyright">
             <div class="inner group">
                 <div class="left">
-                    <a href="http://yithemes.com/?ddownload=2046&ap_id=pinkrio-html"><strong>Download the free version for Wordpress</strong></a>
+                    Built by <a href="https://islamdudaev.ru"><strong>Islam Dudaev</strong></a> &copy; 2018.
                 </div>
                 <div class="right">
                     <a href="#" class="socials-small facebook-small" title="Facebook">facebook</a>
@@ -388,7 +274,6 @@
                     <a href="#" class="socials-small twitter-small" title="Twitter">twitter</a>
                     <a href="#" class="socials-small flickr-small" title="Flickr">flickr</a>
                     <a href="#" class="socials-small skype-small" title="Skype">skype</a>
-                    <a href="#" class="socials-small google-small" title="Google">google</a>
                     <a href="#" class="socials-small pinterest-small" title="Pinterest">pinterest</a>
                 </div>
             </div>
