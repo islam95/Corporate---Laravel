@@ -4,16 +4,19 @@ namespace Corp\Http\Controllers;
 
 use Corp\Models\Menu;
 use Corp\Repositories\MenuRepository;
+use Corp\Repositories\PortfolioRepository;
 use Corp\Repositories\SliderRepository;
 use Illuminate\Http\Request;
 
 use Corp\Http\Requests;
+use Illuminate\Support\Facades\Config;
 
 class IndexController extends SiteController
 {
-    public function __construct(SliderRepository $slides){
+    public function __construct(SliderRepository $slides, PortfolioRepository $portfolios){
         parent::__construct(new MenuRepository(new Menu())); // calling the parent constructor of SiteController.
         $this->slides = $slides;
+        $this->portfolios = $portfolios;
         $this->sidebar = 'right'; // used for right sidebar of the page as class name "sidebar-right".
         $this->template = env('THEME') . '.index'; // template of this controller is pink/index.blade.php
     }
@@ -29,6 +32,11 @@ class IndexController extends SiteController
         $sliderItems = $this->getSlides();
         $slides = view(env('THEME') .'.includes.slider')->with('slides', $sliderItems)->render();
         $this->vars = array_add($this->vars, 'slides', $slides); // adding $slides to array of vars to pass to the view.
+
+        $portfolio = $this->getPortfolio();
+        $content = view(env('THEME') .'.includes.content')->with('portfolio', $portfolio)->render();
+        $this->vars = array_add($this->vars, 'content', $content); // adding $content to array of vars to pass to the view.
+
         return $this->renderOutput();
     }
 
@@ -36,6 +44,13 @@ class IndexController extends SiteController
     public function getSlides() {
         $slides = $this->slides->get();
         return $slides;
+    }
+
+    // gets portfolio data from db using PortfolioRepository
+    protected function getPortfolio() {
+        // Get first 5 portfolio projects (see settings config for a number)
+        $portfolio = $this->portfolios->get('*', Config::get('settings.home_number_portfolio'));
+        return $portfolio;
     }
 
 }
