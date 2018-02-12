@@ -12,3 +12,6 @@
     {!! $content !!}
 @endsection
 
+@section('sidebar')
+    {!! $sidebarRight !!}
+@endsection

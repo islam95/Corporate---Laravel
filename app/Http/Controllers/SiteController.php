@@ -35,6 +35,12 @@ class SiteController extends Controller
         $menu = $this->getMenu();
         $nav = view(env('THEME') .'.includes.nav')->with('menu', $menu)->render();
         $this->vars = array_add($this->vars, 'nav', $nav);
+
+        if ($this->sidebar_right){
+            $sidebarRight = view(env('THEME') .'.includes.sidebarRight')->with('sidebar_right', $this->sidebar_right)->render();
+            $this->vars = array_add($this->vars, 'sidebarRight', $sidebarRight);
+        }
+
         return view($this->template)->with($this->vars);
     }
 
