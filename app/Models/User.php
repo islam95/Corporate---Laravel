@@ -23,4 +23,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // 1:* - 1 user can write Many articles to the blog
+    public function articles(){
+        return $this->hasMany('Corp\Article');
+    }
+
+    // 1:* - 1 user can write Many comments on the article
+    public function comments(){
+        return $this->hasMany('Corp\Comment');
+    }
+    
 }

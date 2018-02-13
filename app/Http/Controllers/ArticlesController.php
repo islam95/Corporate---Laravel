@@ -24,9 +24,9 @@ class ArticlesController extends SiteController
      * @return $this
      * @throws \Throwable
      */
-    public function index()
-    {
+    public function index(){
         $articles = $this->getArticles();
+        $content = view(env('THEME') .'.blog.blog_content')->with('articles', $articles)->render();
 
         return $this->renderOutput();
     }
