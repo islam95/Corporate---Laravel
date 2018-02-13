@@ -42,6 +42,10 @@ class IndexController extends SiteController
         $articles = $this->getArticles();
         $this->sidebar_right = view(env('THEME') .'.indexSidebar')->with('articles', $articles)->render();
 
+        $this->keywords = 'Laravel, Pink Rio, PHP';
+        $this->meta_desc = 'This project is built using Laravel framework by Islam Dudaev in Feb 2018';
+        $this->title = 'Home';
+
         return $this->renderOutput();
     }
 

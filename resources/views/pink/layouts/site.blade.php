@@ -24,16 +24,20 @@
 
 <!-- START BODY -->
 <body class="no_js responsive page-template-home-php stretched">
+
 <!-- START BG SHADOW -->
 <div class="bg-shadow">
+
     <!-- START WRAPPER -->
     <div id="wrapper" class="group">
+
         <!-- START HEADER -->
         <div id="header" class="group">
             <div class="group inner">
+
                 <!-- START LOGO -->
                 <div id="logo" class="group">
-                    <a href="index.html" title="Pink Rio"><img src="{{ asset(env('THEME')) }}/images/logo.png" title="Pink Rio" alt="Pink Rio" /></a>
+                    <a href="{{ route('home') }}" title="Pink Rio"><img src="{{ asset(env('THEME')) }}/images/logo.png" title="Pink Rio" alt="Pink Rio" /></a>
                 </div>
                 <!-- END LOGO -->
 
@@ -58,9 +62,9 @@
 
         <!-- START SLIDER -->
         @yield('slider')
+        <!-- END SLIDER -->
 
-        <!-- START PRIMARY -->
-        <div id="primary" class="sidebar-right">
+        <div id="primary" class="sidebar-{{ isset($sidebar) ? $sidebar : 'no' }}">
             <div class="inner group">
                 <!-- START CONTENT -->
                 @yield('content')
@@ -69,29 +73,13 @@
                 <!-- START SIDEBAR -->
                 @yield('sidebar')
                 <!-- END SIDEBAR -->
-                <!-- START EXTRA CONTENT -->
-                <!-- END EXTRA CONTENT -->
             </div>
         </div>
-        <!-- END PRIMARY -->
 
         <!-- START COPYRIGHT -->
-        <div id="copyright">
-            <div class="inner group">
-                <div class="left">
-                    Built by <a href="https://islamdudaev.ru"><strong>Islam Dudaev</strong></a> &copy; 2018.
-                </div>
-                <div class="right">
-                    <a href="#" class="socials-small facebook-small" title="Facebook">facebook</a>
-                    <a href="#" class="socials-small rss-small" title="Rss">rss</a>
-                    <a href="#" class="socials-small twitter-small" title="Twitter">twitter</a>
-                    <a href="#" class="socials-small flickr-small" title="Flickr">flickr</a>
-                    <a href="#" class="socials-small skype-small" title="Skype">skype</a>
-                    <a href="#" class="socials-small pinterest-small" title="Pinterest">pinterest</a>
-                </div>
-            </div>
-        </div>
+        @yield('footer')
         <!-- END COPYRIGHT -->
+
     </div>
     <!-- END WRAPPER -->
 </div>

@@ -15,12 +15,16 @@ class SiteController extends Controller
     protected $articles;
     protected $menus;
 
+    protected $keywords;
+    protected $meta_desc;
+    protected $title;
+
     protected $template;
     protected $vars = array();
 
     protected $sidebar_right = false;
     protected $sidebar_left = false;
-    protected $sidebar = false;
+    protected $sidebar = 'no';
 
 
     public function __construct(MenuRepository $menus){
@@ -40,6 +44,15 @@ class SiteController extends Controller
             $sidebarRight = view(env('THEME') .'.includes.sidebarRight')->with('sidebar_right', $this->sidebar_right)->render();
             $this->vars = array_add($this->vars, 'sidebarRight', $sidebarRight);
         }
+
+        $this->vars = array_add($this->vars, 'sidebar', $this->sidebar);
+
+        $this->vars = array_add($this->vars, 'keywords', $this->keywords);
+        $this->vars = array_add($this->vars, 'meta_desc', $this->meta_desc);
+        $this->vars = array_add($this->vars, 'title', $this->title);
+
+        $footer = view(env('THEME') .'.includes.footer')->render();
+        $this->vars = array_add($this->vars, 'footer', $footer);
 
         return view($this->template)->with($this->vars);
     }

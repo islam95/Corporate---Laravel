@@ -3,8 +3,11 @@
     <meta charset="UTF-8" />
     <!-- this line will appear only if the website is visited with an iPad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
+    <meta name="description" content="{{ isset($meta_desc) ? $meta_desc : '' }}">
+    <meta name="keywords" content="{{ isset($keywords) ? $keywords : '' }}">
 
-    <title>Pink Rio</title>
+
+    <title>Pink Rio - {{ $title or '' }}</title>
 
     <!-- [favicon] begin -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/images/favicon.ico" />

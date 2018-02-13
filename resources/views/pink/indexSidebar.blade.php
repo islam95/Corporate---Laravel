@@ -1,6 +1,7 @@
 
     <div class="widget-first widget recent-posts">
         <h3>From our blog</h3>
+        {{-- <h3>{{ trans('ru.from_blog') }}</h3> --}}
         <div class="recent-post group">
 
             @foreach($articles as $article)
