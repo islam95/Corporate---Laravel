@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
             return "<?php $name = $value ?>";
         });
 
+        
+
     }
 
     /**
