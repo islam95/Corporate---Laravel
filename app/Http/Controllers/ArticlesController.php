@@ -27,13 +27,12 @@ class ArticlesController extends SiteController
     public function index(){
         $articles = $this->getArticles();
         $content = view(env('THEME') .'.blog.blog_content')->with('articles', $articles)->render();
-
+        $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
 
     public function getArticles($alias = false) {
-        $articles = $this->articles->get(['title','alias','created_at','img','desc'],false, true);
-        dd($articles);
+        $articles = $this->articles->get('*',false, true);
         if($articles) {
             //$articles->load('user', 'category', 'comments');
         }

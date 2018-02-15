@@ -26,12 +26,12 @@ class User extends Authenticatable
 
     // 1:* - 1 user can write Many articles to the blog
     public function articles(){
-        return $this->hasMany('Corp\Article');
+        return $this->hasMany('Corp\Models\Article');
     }
 
     // 1:* - 1 user can write Many comments on the article
     public function comments(){
-        return $this->hasMany('Corp\Comment');
+        return $this->hasMany('Corp\Models\Comment');
     }
     
 }

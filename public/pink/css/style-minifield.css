@@ -541,8 +541,7 @@ div.anythingSlider .anythingControls ul li {
 	display: inline;
 }
 div.anythingSlider .anythingControls ul a {
-	background-image: url("http://yourinspirationtheme.com/demo/pinkrio/wp-content/themes/pinkrio/theme/templates/sliders/cycle/css/img/slider-pointer.png");
-	background-position: center bottom;
+	background: url("http://yourinspirationtheme.com/demo/pinkrio/wp-content/themes/pinkrio/theme/templates/sliders/cycle/css/img/slider-pointer.png") center bottom;
 	display: inline-block;
 	height: 8px;
 	margin: 0 25px 0 0;
@@ -569,9 +568,7 @@ div.anythingSlider.rtl .anythingWindow {
 	unicode-bidi: bidi-override;
 }
 div.anythingSlider .start-stop {
-	background-image: url(../images/slider-cycle/default.png);
-	background-position: center -288px;
-	background-repeat: repeat-x;
+	background: url(../images/slider-cycle/default.png) repeat-x center -288px;
 	padding: 2px 5px;
 	width: 40px;
 	text-align: center;
