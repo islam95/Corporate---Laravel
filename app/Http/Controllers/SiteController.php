@@ -14,6 +14,7 @@ class SiteController extends Controller
     protected $slides;
     protected $articles;
     protected $menus;
+    protected $comments;
 
     protected $keywords;
     protected $meta_desc;
