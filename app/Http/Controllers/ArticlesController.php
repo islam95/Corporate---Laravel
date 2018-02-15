@@ -43,13 +43,18 @@ class ArticlesController extends SiteController
     public function getArticles($alias = false) {
         $articles = $this->articles->get('*',false, true);
         if($articles) {
-            //$articles->load('user', 'category', 'comments');
+            // for overload of sql queries in the same page
+            $articles->load('user', 'category', 'comments'); // loads all these Models prior to the page load
         }
         return $articles;
     }
 
     public function getComments($take){
         $comments = $this->comments->get(['text', 'name', 'email', 'site', 'article_id', 'user_id'], $take);
+        if($comments) {
+            // for overload of sql queries in the same page
+            $comments->load('user', 'article'); // loads all these Models prior to the page load
+        }
         return $comments;
     }
 
