@@ -53,7 +53,7 @@
 
     @else
     <div>
-        <h3>Currently, there are no articles in the blog.</h3>
+        <h3>Currently, there are no articles.</h3>
         <h3>Please, visit our blog later.</h3>
     </div>
 @endif

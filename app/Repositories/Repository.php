@@ -9,10 +9,13 @@ abstract class Repository {
     protected $model = false;
 
     // Gets all the data from given model (database table)
-    public function get($select = '*', $take = false, $pagination = false){
+    public function get($select = '*', $take = false, $pagination = false, $where = false){
         $builder = $this->model->select($select);
         if($take){
             $builder->take($take);
+        }
+        if($where){
+            $builder->where($where[0], $where[1]);
         }
         if($pagination){
             return $this->check($builder->paginate(Config::get('settings.blog_paginate')));
