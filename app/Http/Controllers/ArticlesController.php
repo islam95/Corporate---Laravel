@@ -74,5 +74,17 @@ class ArticlesController extends SiteController {
         return $projects;
     }
 
+    public function show($alias = false){
+        $article = $this->articles->one($alias, ['comments' => true]);
+        //dd($article);
+        $content = view(env('THEME') .'.blog.article')->with('article', $article)->render();
+        $this->vars = array_add($this->vars,'content',$content);
+
+        $comments = $this->getComments(config('settings.recent_comments_number'));
+        $projects = $this->getProjects(config('settings.recent_projects_number'));
+        $this->sidebar_right = view(env('THEME') .'.blog.blog_sidebar')->with(['comments'=>$comments, 'projects'=>$projects]);
+
+        return $this->renderOutput();
+    }
 
 }
