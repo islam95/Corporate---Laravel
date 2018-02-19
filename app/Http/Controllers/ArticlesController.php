@@ -76,7 +76,9 @@ class ArticlesController extends SiteController {
 
     public function show($alias = false){
         $article = $this->articles->one($alias, ['comments' => true]);
-        //dd($article);
+        if($article) {
+            $article->img = json_decode($article->img);
+        }
         $content = view(env('THEME') .'.blog.article')->with('article', $article)->render();
         $this->vars = array_add($this->vars,'content',$content);
 
