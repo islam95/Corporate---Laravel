@@ -1,4 +1,5 @@
 <div id="content-single" class="content group">
+
     @if($article)
 
     <div class="hentry hentry-post blog-big group ">
@@ -18,84 +19,43 @@
         <!-- post meta -->
         <div class="meta group">
             <p class="author"><span>by <a href="#" title="{{ $article->title }}" rel="author">{{ $article->user->name }}</a></span></p>
-            <p class="categories"><span>In: <a href="{{ route('blogCategory', ['cat_alias' => $article->category->alias]) }}" title="View all posts in {{ $article->category->title }}" rel="category tag">{{ $article->category->title }}</a></span></p>
-            <p class="comments"><span><a href="#comments" title="Comment on This is the title of the first article. Enjoy it.">{{ count($article->comments) ? count($article->comments) : '0' }} comments</a></span></p>
+            <p class="categories">
+                <span>In:
+                    <a href="{{ route('blogCategory', ['cat_alias' => $article->category->alias]) }}" title="View all posts in {{ $article->category->title }}" rel="category tag">
+                        {{ $article->category->title }}
+                    </a>
+                </span>
+            </p>
+            <p class="comments">
+                <span>
+                    <a href="#comments" title="Comment on This is the title of the first article. Enjoy it.">
+                        {{ count($article->comments) ? count($article->comments) : '0' }} comments
+                    </a>
+                </span>
+            </p>
         </div>
         <!-- post content -->
         <div class="the-content single group">
             <p>{!! $article->text !!}</p>
-            <div class="socials">
-                <h2>love it, share it!</h2>
-                <a href="https://www.facebook.com/sharer.html?u=http%3A%2F%2Fyourinspirationtheme.com%2Fdemo%2Fpinkrio%2F2012%2F09%2F24%2Fthis-is-the-title-of-the-first-article-enjoy-it%2F&amp;t=This+is+the+title+of+the+first+article.+Enjoy+it." class="socials-small facebook-small" title="Facebook">facebook</a>
-                <a href="https://twitter.com/share?url=http%3A%2F%2Fyourinspirationtheme.com%2Fdemo%2Fpinkrio%2F2012%2F09%2F24%2Fthis-is-the-title-of-the-first-article-enjoy-it%2F&amp;text=This+is+the+title+of+the+first+article.+Enjoy+it." class="socials-small twitter-small" title="Twitter">twitter</a>
-                <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http%3A%2F%2Fyourinspirationtheme.com%2Fdemo%2Fpinkrio%2F2012%2F09%2F24%2Fthis-is-the-title-of-the-first-article-enjoy-it%2F&amp;title=This+is+the+title+of+the+first+article.+Enjoy+it." class="socials-small google-small" title="Google">google</a>
-                <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fyourinspirationtheme.com%2Fdemo%2Fpinkrio%2F2012%2F09%2F24%2Fthis-is-the-title-of-the-first-article-enjoy-it%2F&amp;media=http://yourinspirationtheme.com/demo/pinkrio/files/2012/09/00212.jpg&amp;description=Fusce+nec+accumsan+eros.+Aenean+ac+orci+a+magna+vestibulum+posuere+quis+nec+nisi.+Maecenas+rutrum+vehicula+condimentum.+Donec+volutpat+nisl+ac+mauris+consectetur+gravida.+Lorem+ipsum+dolor+sit+amet%2C+consectetur+adipiscing+elit.+Donec+vel+vulputate+nibh.+Pellentesque%5B...%5D" class="socials-small pinterest-small" title="Pinterest">pinterest</a>
-                <a href="http://yourinspirationtheme.com/demo/pinkrio/2012/09/24/this-is-the-title-of-the-first-article-enjoy-it/" class="socials-small bookmark-small" title="This is the title of the first article. Enjoy it.">bookmark</a>
-            </div>
         </div>
-        <p class="tags">Tags: <a href="#" rel="tag">book</a>, <a href="#" rel="tag">css</a>, <a href="#" rel="tag">design</a>, <a href="#" rel="tag">inspiration</a></p>
         <div class="clear"></div>
     </div>
     <!-- START COMMENTS -->
     <div id="comments">
         <h3 id="comments-title">
-            <span>2</span> comments
+            <span>{{ count($article->comments) }}</span> comments
         </h3>
+
+        @set($com, $article->comments->groupBy('parent_id'))
         <ol class="commentlist group">
-            <li class="comment even depth-1">
-                <div class="comment-container">
-                    <div class="comment-author vcard">
-                        <img alt="" src="images/avatar/unknow.png" class="avatar" height="75" width="75" />
-                        <cite class="fn">Anonymous</cite>
-                    </div>
-                    <!-- .comment-author .vcard -->
-                    <div class="comment-meta commentmetadata">
-                        <div class="intro">
-                            <div class="commentDate">
-                                <a href="#comment-2">
-                                    September 24, 2012 at 1:31 pm</a>
-                            </div>
-                            <div class="commentNumber">#&nbsp;1</div>
-                        </div>
-                        <div class="comment-body">
-                            <p>Hi all, i’m a guest and this is the guest’s awesome comments template!</p>
-                        </div>
-                        <div class="reply group">
-                            <a class="comment-reply-link" href="#respond" onclick="return addComment.moveForm(&quot;comment-2&quot;, &quot;2&quot;, &quot;respond&quot;, &quot;41&quot;)">Reply</a>
-                        </div>
-                        <!-- .reply -->
-                    </div>
-                    <!-- .comment-meta .commentmetadata -->
-                </div>
-                <!-- #comment-##  -->
-            </li>
-            <li class="comment bypostauthor odd">
-                <div class="comment-container">
-                    <div class="comment-author vcard">
-                        <img alt="" src="images/avatar/nicola.jpeg" class="avatar" height="75" width="75" />
-                        <cite class="fn">nicola</cite>
-                    </div>
-                    <!-- .comment-author .vcard -->
-                    <div class="comment-meta commentmetadata">
-                        <div class="intro">
-                            <div class="commentDate">
-                                <a href="#">
-                                    September 24, 2012 at 1:32 pm</a>
-                            </div>
-                            <div class="commentNumber">#&nbsp;2</div>
-                        </div>
-                        <div class="comment-body">
-                            <p>While i’m the author of the post. My comment template is different, something like a “sticky comment”!</p>
-                        </div>
-                        <div class="reply group">
-                            <a class="comment-reply-link" href="#respond" onclick="return addComment.moveForm(&quot;comment-3&quot;, &quot;3&quot;, &quot;respond&quot;, &quot;41&quot;)">Reply</a>
-                        </div>
-                        <!-- .reply -->
-                    </div>
-                    <!-- .comment-meta .commentmetadata -->
-                </div>
-                <!-- #comment-##  -->
-            </li>
+
+            @foreach($com as $k => $comments)
+                @if($k !== 0)
+                    @break
+                @endif
+                @include(env('THEME').'.blog.comment', ['items' => $comments])
+            @endforeach
+
         </ol>
 
         <!-- START TRACKBACK & PINGBACK -->
@@ -122,4 +82,5 @@
     <!-- END COMMENTS -->
 
     @endif
+
 </div>
