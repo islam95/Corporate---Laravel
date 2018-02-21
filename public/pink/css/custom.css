@@ -11,3 +11,17 @@ Good work... and good luck! :)
     color: #ea7206;
 }
 
+.wrap_result {
+    background-color: #f0f2f0;
+    border: 2px solid #2C8DB8;
+    border-radius: 10px;
+    padding: 20px;
+    position: fixed;
+    left: 35%;
+    top:45%;
+    width:300px;
+    height: 80px;
+    text-align: center;
+    display: none;
+    z-index: 5005;
+}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
     <meta name="description" content="{{ isset($meta_desc) ? $meta_desc : '' }}">
     <meta name="keywords" content="{{ isset($keywords) ? $keywords : '' }}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Pink Rio - {{ $title or '' }}</title>
 
@@ -39,7 +39,7 @@
     <link rel="stylesheet" id="custom-css" href="{{ asset(env('THEME')) }}/css/custom.css" type="text/css" media="all" />
 
     <!-- FONTs -->
-    <link rel="stylesheet" id="google-fonts-css" href="http://fonts.googleapis.com/css?family=Oswald%7CDroid+Sans%7CPlayfair+Display%7COpen+Sans+Condensed%3A300%7CRokkitt%7CShadows+Into+Light%7CAbel%7CDamion%7CMontez&amp;ver=3.4.2" type="text/css" media="all" />
+    <link rel="stylesheet" id="google-fonts-css" href="https://fonts.googleapis.com/css?family=Oswald%7CDroid+Sans%7CPlayfair+Display%7COpen+Sans+Condensed%3A300%7CRokkitt%7CShadows+Into+Light%7CAbel%7CDamion%7CMontez&amp;ver=3.4.2" type="text/css" media="all" />
     <link rel='stylesheet' href='{{ asset(env('THEME')) }}/css/font-awesome.css' type='text/css' media='all' />
 
     <!-- JAVASCRIPTs -->
@@ -58,5 +58,6 @@
     <script type="text/javascript" src="{{ asset(env('THEME')) }}/js/shortcodes.js"></script>
     <script type="text/javascript" src="{{ asset(env('THEME')) }}/js/jquery.colorbox-min.js"></script> <!-- nav -->
     <script type="text/javascript" src="{{ asset(env('THEME')) }}/js/jquery.tweetable.js"></script>
+    <script type="text/javascript" src="{{ asset(env('THEME')) }}/js/myScript.js"></script>
 
 </head>

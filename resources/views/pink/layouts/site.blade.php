@@ -64,6 +64,8 @@
         @yield('slider')
         <!-- END SLIDER -->
 
+        <div class="wrap_result"></div>
+
         <div id="primary" class="sidebar-{{ isset($sidebar) ? $sidebar : 'no' }}">
             <div class="inner group">
                 <!-- START CONTENT -->
