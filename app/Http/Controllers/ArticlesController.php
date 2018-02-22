@@ -40,6 +40,8 @@ class ArticlesController extends SiteController {
         $projects = $this->getProjects(config('settings.recent_projects_number'));
         $this->sidebar_right = view(env('THEME') .'.blog.blog_sidebar')->with(['comments'=>$comments, 'projects'=>$projects]);
 
+        $this->title = 'Blog';
+
         return $this->renderOutput();
     }
 
@@ -61,7 +63,7 @@ class ArticlesController extends SiteController {
     }
 
     public function getComments($take){
-        $comments = $this->comments->get(['text', 'name', 'email', 'site', 'article_id', 'user_id'], $take);
+        $comments = $this->comments->get('*', $take);
         if($comments) {
             // for overload of sql queries in the same page
             $comments->load('user', 'article'); // loads all these Models prior to the page load
@@ -70,7 +72,7 @@ class ArticlesController extends SiteController {
     }
 
     public function getProjects($take){
-        $projects = $this->portfolios->get(['title', 'text', 'alias', 'customer', 'img', 'tag_alias'], $take);
+        $projects = $this->portfolios->get('*', $take);
         return $projects;
     }
 
@@ -79,6 +81,10 @@ class ArticlesController extends SiteController {
         if($article) {
             $article->img = json_decode($article->img);
         }
+        $this->title = $article->title;
+        $this->keywords = $article->keywords;
+        $this->meta_desc = $article->meta_desc;
+
         $content = view(env('THEME') .'.blog.article')->with('article', $article)->render();
         $this->vars = array_add($this->vars,'content',$content);
 
