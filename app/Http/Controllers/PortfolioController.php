@@ -23,12 +23,25 @@ class PortfolioController extends SiteController
      */
     public function index(){
         // ------------------- Content of the main Portfolio page --------------------
-        $content = view(env('THEME') .'.portfolio.main')->render();
+        $this->title = 'Portfolio';
+        $projects = $this->getProjects();
+        $content = view(env('THEME') .'.portfolio.main')->with('projects', $projects)->render();
         $this->vars = array_add($this->vars, 'content', $content);
 
-        $this->title = 'Portfolio';
+
+
+
 
         return $this->renderOutput();
+    }
+
+    public function getProjects(){
+        $projects = $this->portfolios->get('*', false, true);
+        if($projects) {
+            // for overload of sql queries in the same page
+            $projects->load('tag'); // loads all these Models prior to the page load
+        }
+        return $projects;
     }
 
 
