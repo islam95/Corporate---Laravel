@@ -41,17 +41,15 @@ class PortfolioController extends SiteController
     }
 
     public function show($alias){
+        $project = $this->portfolios->one($alias);
 
-        /*
-        $this->title = $article->title;
-        $this->keywords = $article->keywords;
-        $this->meta_desc = $article->meta_desc;
-
-        $content = view(env('THEME') .'.blog.article')->with('article', $article)->render();
-        $this->vars = array_add($this->vars,'content',$content);
-*/
         $projects = $this->getProjects(config('settings.projects_number'), false);
-        dd($projects);
+
+        $this->title = $project->title;
+
+        $content = view(env('THEME') .'.portfolio.project')->with(['project' => $project, 'projects' => $projects])->render();
+        $this->vars = array_add($this->vars,'content',$content);
+
         return $this->renderOutput();
     }
 
