@@ -6,6 +6,6 @@
         'blog_paginate' => 2,
         'recent_comments_number' => 3,
         'recent_projects_number' => 3,
-
+        'projects_number' => 10,
     ];
 

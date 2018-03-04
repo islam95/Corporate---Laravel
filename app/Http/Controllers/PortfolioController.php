@@ -28,20 +28,31 @@ class PortfolioController extends SiteController
         $content = view(env('THEME') .'.portfolio.main')->with('projects', $projects)->render();
         $this->vars = array_add($this->vars, 'content', $content);
 
-
-
-
-
         return $this->renderOutput();
     }
 
-    public function getProjects(){
-        $projects = $this->portfolios->get('*', false, true);
+    public function getProjects($take = false, $pagination = true){
+        $projects = $this->portfolios->get('*', $take, $pagination);
         if($projects) {
             // for overload of sql queries in the same page
             $projects->load('tag'); // loads all these Models prior to the page load
         }
         return $projects;
+    }
+
+    public function show($alias){
+
+        /*
+        $this->title = $article->title;
+        $this->keywords = $article->keywords;
+        $this->meta_desc = $article->meta_desc;
+
+        $content = view(env('THEME') .'.blog.article')->with('article', $article)->render();
+        $this->vars = array_add($this->vars,'content',$content);
+*/
+        $projects = $this->getProjects(config('settings.projects_number'), false);
+        dd($projects);
+        return $this->renderOutput();
     }
 
 
