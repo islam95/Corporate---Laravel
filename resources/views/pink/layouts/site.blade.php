@@ -66,6 +66,17 @@
 
         <div class="wrap_result"></div>
 
+        @if(Route::currentRouteName() == 'contact')
+            <!-- START PAGE META -->
+            <div id="page-meta">
+                <div class="inner group">
+                    <h3>...Say Hello! :)</h3>
+                    <h4>Get in touch with Pink Rio team</h4>
+                </div>
+            </div>
+            <!-- END PAGE META -->
+        @endif
+
         <div id="primary" class="sidebar-{{ isset($sidebar) ? $sidebar : 'no' }}">
             <div class="inner group">
                 <!-- START CONTENT -->

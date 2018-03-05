@@ -21,4 +21,8 @@ Route::get('articles/cat/{cat_alias?}', [
 
 Route::resource('comment','CommentController',['only'=>['store']]);
 
+Route::match(['get', 'post'], '/contact', [
+    'uses'=>'ContactController@index',
+    'as'=>'contact'
+]);
 
