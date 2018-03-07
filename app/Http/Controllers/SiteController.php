@@ -64,7 +64,7 @@ class SiteController extends Controller
     }
 
     // Menu links from the database
-    protected function getMenu(){
+    public function getMenu(){
         $menu = $this->menus->get(); // gets all the data from the Menu model (menus table in db)
         // used external plugin for menu creation: "laravel-menu"
         $myNav = \Menu::make('myNav', function($m) use ($menu) {
