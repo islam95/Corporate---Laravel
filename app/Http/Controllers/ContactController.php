@@ -44,7 +44,6 @@ class ContactController extends SiteController
 
         }
 
-
         $this->title = 'Contact';
 
         $content = view(env('THEME').'.contact.main')->render();
