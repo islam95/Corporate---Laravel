@@ -2,7 +2,7 @@
 
 namespace Corp\Http\Controllers\Auth;
 
-use Corp\User;
+use Corp\Models\User;
 use Validator;
 use Corp\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new authentication controller instance.
