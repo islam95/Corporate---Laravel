@@ -26,5 +26,6 @@ Route::match(['get', 'post'], '/contact', [
     'as'=>'contact'
 ]);
 
+
 Route::auth();
 
