@@ -29,7 +29,7 @@ Route::match(['get', 'post'], '/contact', [
 Route::auth();
 
 // Admin
-Route::group(['prefix'=>'admin'], function (){
+Route::group(['prefix'=>'admin','middleware'=> 'auth'], function (){
 
     Route::get('/', ['uses'=>'Admin\IndexController@index', 'as'=>'adminIndex']);
 
