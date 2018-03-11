@@ -26,6 +26,13 @@ Route::match(['get', 'post'], '/contact', [
     'as'=>'contact'
 ]);
 
-
 Route::auth();
 
+// Admin
+Route::group(['prefix'=>'admin'], function (){
+
+    Route::get('/', ['uses'=>'Admin\IndexController@index', 'as'=>'adminIndex']);
+
+    Route::resource('/articles', 'Admin\ArticlesController');
+
+});
