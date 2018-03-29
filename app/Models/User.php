@@ -37,4 +37,28 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany('Corp\Models\Role', 'user_role');
     }
+
+    // can be 'string' or array('VIEW_ADMIN', 'ADD_ARTICLES')
+    public function canDo($permission, $require = false){
+        if(is_array($permission)){
+            foreach ($permission as $permName){
+                $permName = $this->canDo($permName); // recursion
+                if($permName && !$require){
+                    return true;
+                } elseif (!$permName && $require){
+                    return false;
+                }
+            }
+            return $require;
+        } else {
+            foreach($this->roles()->get() as $role){
+                foreach ($role->permissons()->get() as $perm){
+                    if(str_is($permission, $perm->name)){
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
 }
