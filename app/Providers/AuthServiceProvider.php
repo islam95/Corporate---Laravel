@@ -29,5 +29,10 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('VIEW_ADMIN', function ($user){
             return $user->canDo('VIEW_ADMIN'); // true if user have permission
         });
+
+        $gate->define('VIEW_ARTICLES', function ($user){
+            return $user->canDo('VIEW_ARTICLES'); // true if user have permission
+        });
+
     }
 }
