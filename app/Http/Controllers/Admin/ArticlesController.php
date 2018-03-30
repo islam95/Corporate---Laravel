@@ -33,6 +33,10 @@ class ArticlesController extends AdminController
         return $this->renderOutput();
     }
 
+    public function getArticles(){
+        return $this->articles->get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
