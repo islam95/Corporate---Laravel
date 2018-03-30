@@ -52,7 +52,7 @@ class User extends Authenticatable
             return $require;
         } else {
             foreach($this->roles()->get() as $role){
-                foreach ($role->permissons()->get() as $perm){
+                foreach ($role->permissions()->get() as $perm){
                     if(str_is($permission, $perm->name)){
                         return true;
                     }

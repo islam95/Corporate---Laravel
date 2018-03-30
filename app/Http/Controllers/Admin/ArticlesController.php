@@ -13,7 +13,7 @@ class ArticlesController extends AdminController
 {
     public function __construct(ArticleRepository $articles){
         parent::__construct();
-        if(Gate::denise('VIEW_ARTICLES')){
+        if(Gate::denies('VIEW_ARTICLES')){
             abort(403);
         }
         $this->articles = $articles;
