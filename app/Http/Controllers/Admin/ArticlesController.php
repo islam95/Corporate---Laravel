@@ -24,10 +24,13 @@ class ArticlesController extends AdminController
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * @throws \Throwable
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $this->title = 'Articles management';
+        $articles = $this->getArticles();
+        $this->content = view(env('THEME').'.admin.articles_content')->with('articles', $articles)->render();
+        return $this->renderOutput();
     }
 
     /**
