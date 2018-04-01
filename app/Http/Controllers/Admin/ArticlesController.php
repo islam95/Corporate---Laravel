@@ -3,6 +3,7 @@
 namespace Corp\Http\Controllers\Admin;
 
 use Corp\Models\Article;
+use Corp\Models\Category;
 use Corp\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,19 @@ class ArticlesController extends AdminController
         if (Gate::denies('save', new Article())){
             abort(403);
         }
+        $this->title = "Add new article";
+        $categories = Category::select(['title', 'alias', 'parent_id', 'id'])->get();
+        $lists = array();
+        foreach ($categories as $category){
+            if($category->parent_id == 0){
+                $lists[$category->title] = array();
+            } else{
+                $lists[$categories->where('id', $category->parent_id)->first()->title][$category->id] = $category->title;
+            }
+        }
+        //dd($lists);
+        $this->content = view(env('THEME') .'.admin.articles_create')->with('categories', $lists)->render();
+        return $this->renderOutput();
     }
 
     /**
