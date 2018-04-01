@@ -1,7 +1,7 @@
 @if($articles)
     <div id="content-page" class="content group">
         <div class="hentry group">
-            <h2>Articles</h2>
+            <h2>Blog articles</h2>
             <div class="short-table white">
                 <table style="width: 100%" cellspacing="0" cellpadding="0">
                     <thead>
@@ -12,7 +12,7 @@
                         <th>Image</th>
                         <th>Category</th>
                         <th>Alias</th>
-                        <th>More</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>

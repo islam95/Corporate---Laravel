@@ -2,6 +2,7 @@
 
 namespace Corp\Http\Controllers\Admin;
 
+use Corp\Models\Article;
 use Corp\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,9 @@ class ArticlesController extends AdminController
      */
     public function create()
     {
-        //
+        if (Gate::denies('save', new Article())){
+            abort(403);
+        }
     }
 
     /**
