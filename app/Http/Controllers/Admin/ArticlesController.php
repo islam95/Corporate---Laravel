@@ -69,12 +69,16 @@ class ArticlesController extends AdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ArticleRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(ArticleRequest $request)
     {
-
+        $result = $this->articles->addArticle($request);
+        if(is_array($result) && !empty($result['error'])){
+            return back()->with($result);
+        }
+        return redirect('/admin')->with($result);
     }
 
     /**
