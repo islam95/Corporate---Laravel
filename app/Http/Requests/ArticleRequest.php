@@ -13,7 +13,7 @@ class ArticleRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class ArticleRequest extends Request
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'text' => 'required',
+            'category_id' => 'required|integer'
         ];
     }
 }

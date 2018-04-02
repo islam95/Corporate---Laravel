@@ -2,6 +2,7 @@
 
 namespace Corp\Http\Controllers\Admin;
 
+use Corp\Http\Requests\ArticleRequest;
 use Corp\Models\Article;
 use Corp\Models\Category;
 use Corp\Repositories\ArticleRepository;
@@ -71,7 +72,7 @@ class ArticlesController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
 
     }
