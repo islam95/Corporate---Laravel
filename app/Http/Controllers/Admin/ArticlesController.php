@@ -43,6 +43,7 @@ class ArticlesController extends AdminController
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * @throws \Throwable
      */
     public function create()
     {
@@ -72,7 +73,7 @@ class ArticlesController extends AdminController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
