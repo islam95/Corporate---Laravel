@@ -3,6 +3,7 @@
 namespace Corp\Http\Requests;
 
 use Corp\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleRequest extends Request
 {
@@ -13,7 +14,7 @@ class ArticleRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->canDo('ADD_ARTICLES');
     }
 
     /**
