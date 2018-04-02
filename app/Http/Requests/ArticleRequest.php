@@ -25,9 +25,10 @@ class ArticleRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'text' => 'required',
-            'category_id' => 'required|integer'
+            'title'         => 'required|max:255',
+            'alias'         => 'required|unique:articles|max:255',
+            'text'          => 'required',
+            'category_id'   => 'required|integer'
         ];
     }
 }
