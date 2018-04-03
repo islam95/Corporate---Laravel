@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    protected $fillable = ['title', 'img', 'alias', 'text', 'desc', 'keywords', 'meta_desc', 'category_id'];
+
     // 1:1 - 1 article can be assigned only to 1 user
     public function user()
     {
